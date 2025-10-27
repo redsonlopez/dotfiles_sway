@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Diretórios base
-DOTFILES_DIR="$HOME/Projects/dotfile_sway"
+DOTFILES_DIR="$HOME/Projects/dotfiles_sway"
 CONFIG_DIR="$HOME/.config"
 
 # Pastas de configuração que ficam dentro de ~/.config
