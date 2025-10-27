@@ -23,7 +23,7 @@ done
 
 # Vincular .bashrc
 echo "Vinculando .bashrc..."
-ln -sf "$DOTFILES_DIR/bash/.bashrc" "$HOME/.bashrc"
+ln -sf "$DOTFILES_DIR/shell/.bashrc" "$HOME/.bashrc"
 
 # Garantir que o papel de parede do Sway seja encontrado
 WALLPAPER_SRC="$DOTFILES_DIR/sway/ds.png"
