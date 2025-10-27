@@ -1,5 +1,10 @@
 #!/bin/bash
 
+sudo apt install -y foot i3status neovim fonts-font-awesome
+
+mkdir -p ~/.config
+sudo mkdir -p /usr/share/backgrounds
+
 # Diretórios base
 DOTFILES_DIR="$HOME/Projects/dotfiles_sway"
 CONFIG_DIR="$HOME/.config"
@@ -28,9 +33,10 @@ ln -sf "$DOTFILES_DIR/shell/.bashrc" "$HOME/.bashrc"
 # Garantir que o papel de parede do Sway seja encontrado
 WALLPAPER_SRC="$DOTFILES_DIR/sway/ds.png"
 if [ -f "$WALLPAPER_SRC" ]; then
-    echo "Papel de parede encontrado: $WALLPAPER_SRC"
+    sudo cp $WALLPAPER_SRC /usr/share/backgrounds/ds.jpg
 else
-    echo "Aviso: o arquivo ds.png não foi encontrado em sway/. Verifique o caminho."
+    echo "  Arquivo ds.jpg não encontrado no diretório atual."
+    echo "  Coloque o ds.jpg na mesma pasta deste script e execute novamente."
 fi
 
 echo "Configurações vinculadas com sucesso."
