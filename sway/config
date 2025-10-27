@@ -24,11 +24,10 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/ds.jpg fill
-##
-# Alpine Linux
-#exec swaybg -o "*" -i /usr/share/backgrounds/ds.png -m fill
-#exec swaybg -o "*" -c "#222222"
 #
+output * scale 1.25
+##
+
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -43,15 +42,6 @@ output * bg /usr/share/backgrounds/ds.jpg fill
 #	before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
 #
 # Keyboard
     input type:keyboard {
@@ -85,18 +75,18 @@ input type:touchpad {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-15'"
+    bindsym $mod+d exec $menu
+    #bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-15'"
 
     # Use pactl to adjust volume in PulseAudio.
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-    ##
-    # Alpine Linux
-    #bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
-    #bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
-    #bindsym XF86AudioMute exec amixer sset Master toggle
+
+    # Brightness
+    bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+    bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -229,9 +219,6 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y/%m/%d %Hh%M'; do sleep 1; done
     font pango:ttf-font-awesome 11
     tray_output none
     status_command i3status
@@ -254,4 +241,3 @@ smart_borders on
 
 # ## ###
 include /etc/sway/config.d/*
-
