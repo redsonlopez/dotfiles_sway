@@ -5,7 +5,7 @@ DOTFILES_DIR="$HOME/Projects/dotfiles_sway"
 CONFIG_DIR="$HOME/.config"
 
 # Pastas de configuração que ficam dentro de ~/.config
-declare -a CONFIGS=("sway" "foot" "i3status")
+declare -a CONFIGS=("sway" "foot" "i3status" "nvim")
 
 # Criação dos links simbólicos
 for dir in "${CONFIGS[@]}"; do
