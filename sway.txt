@@ -1,0 +1,96 @@
+https://wiki.archlinux.org/title/Sway#Configuration
+-------> Config ->
+$ sudo pacman -S neovim wl-clipboard git i3status-rust ttf-font-awesome
+->
+$ mkdir ~/Projects
+$ cd ~/Projects
+$ git clone https://github.com/redsonlopez/sway.git
+$ cd ~/Projects/sway/arch
+$ sudo cp .bashrc ~/.bashrc
+$ sudo cp config.toml /usr/share/doc/i3status-rust/examples
+$ sudo cp ds.png /usr/share/backgrounds
+$ cd ~/Projects/sway/arch/.config
+$ sudo cp -r nvim foot sway ~/.config
+$ sudo mkdir -p /root/.config/nvim/
+$ sudo ln -s ~/.config/nvim/init.vim /root/.config/nvim/init.vim
+->
+$ sudo nvim ~/.config/nvim/init.vim
+$ sudo nvim ~/.config/foot/foot.ini
+$ sudo nvim ~/.config/sway/config
+$ sudo nvim /usr/share/doc/i3status-rust/examples/config.toml
+-> Firefox
+in firefox about:config
+network.dns.disableIPv6 = true
+in firefox about:support
+Search > Profile Directory = dir???????
+$ mkdir -p ~/.mozilla/firefox/dir???????/chrome
+$ nvim ~/.mozilla/firefox/dir???????>/chrome/userChrome.css
+#TabsToolbar { visibility: collapse !important; }
+in firefox about:config
+toolkit.legacyUserProfileCustomizations.stylesheets = true
+-------> Connecting ->
+$ sudo nvim /etc/resolv.conf
+nameserver 1.1.1.1
+nameserver 8.8.8.8 # Google
+-------> Git Config ->
+$ ssh-keygen -t rsa -b 4096 -C "redsonlopez@gmail.com"
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub
+$ git clone git@github.com:redsonlopez/study_python.git ~/Projects/study_python
+-------> Python ->
+$ sudo pacman -S python3
+$ python3 -m venv ~/Projects/.venv
+$ source ~/Projects/.venv/bin/activate
+$ python3 -m pip install --upgrade pip
+$ pip install jupyterlab
+$ deactivate
+-------> Update & Root ->
+$ sudo pacman -Syu
+$ su -
+-------> CPU Power ->
+$ systemctl list-unit-files --state=enabled
+$ echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.d/99-sysctl.conf
+$ sudo pacman -S cpupower
+$ sudo systemctl enable cpupower
+$ sudo cpupower frequency-set -g powersave
+$ top
+-------> More about Connecting ->
+$ sudo chattr +i /etc/resolv.conf
+$ sudo ip link set dev wlan0 mtu 1492
+->
+$ sudo nano /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash tcp_bbr ipv6.disable=1"
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+$ sudo modprobe tcp_bbr
+$ echo "tcp_bbr" | sudo tee -a /etc/modules-load.d/modules.conf
+->
+$ sudo nano /etc/sysctl.d/99-sysctl.conf
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+$ sudo sysctl -p
+-> Old
+$ sudo nvim /etc/hostname
+$ sudo nvim /etc/hosts
+$ sudo nvim /etc/environment
+-------> ScreenShare ->
+$ sudo pacman -S xdg-desktop-portal xdg-desktop-portal-wlr pipewire-media-session
+------->ScreenShare Troubleshooting
+$ systemctl --user show-environment | grep -E 'XDG_CURRENT_DESKTOP|WAYLAND_DISPLAY'
+$ systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+$ dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
+$ nvim .config/sway/config
+exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
+$ swaymsg exit
+$ systemctl --user restart xdg-desktop-portal-wlr
+$ systemctl --user status xdg-desktop-portal-wlr
+-------> WIFI ->
+$ iwctl
+$ device list
+$ device <wlan> set-property Powered on
+$ station <wlan> scan
+$ station <wlan> show
+$ station <wlan> get-networks
+$ station <wlan> connect <wifi>
