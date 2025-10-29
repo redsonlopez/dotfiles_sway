@@ -7,6 +7,7 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias tree='tree -C --dirsfirst'
 
 # remove duplicate entries from history
 export HISTCONTROL=ignoreboth

@@ -1,18 +1,21 @@
 #!/bin/bash
 
-sudo apt install -y foot i3status neovim wmenu fonts-font-awesome
+#sudo apt install -y foot i3status neovim wmenu fonts-font-awesome wl-clipboard
+#sudo timedatectl set-timezone America/Sao_Paulo
 
-sudo apt install brightnessctl
-sudo usermod -aG video $USER
-
-sudo apt install pipewire pipewire-audio-client-libraries pipewire-pulse wireplumber
+# M11W
+#sudo apt install firmware-sof-signed linux-firmware
+# Brightness
+#sudo apt install brightnessctl
+#sudo usermod -aG video $USER
+# Audio
+#sudo apt install pipewire pipewire-audio-client-libraries pipewire-pulse wireplumber pulseaudio-utils
 # Deactive pulseaudio
-systemctl --user stop pulseaudio.service pulseaudio.socket
-systemctl --user disable pulseaudio.service pulseaudio.socket
+#systemctl --user stop pulseaudio.service pulseaudio.socket
+#systemctl --user disable pulseaudio.service pulseaudio.socket
 # Active pipewire
-systemctl --user enable pipewire pipewire-pulse wireplumber
-systemctl --user start pipewire pipewire-pulse wireplumber
-
+#systemctl --user enable pipewire pipewire-pulse wireplumber
+#systemctl --user start pipewire pipewire-pulse wireplumber
 
 mkdir -p ~/.config
 sudo mkdir -p /usr/share/backgrounds

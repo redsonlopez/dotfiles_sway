@@ -226,10 +226,11 @@ bar {
     colors {
         background #222222
         statusline #dddddd
-        separator #666666
-        focused_workspace #0088CC #0088CC #FFFFFF
-        active_workspace #333333 #333333 #FFFFFF
-        inactive_workspace #333333 #333333 #888888
+        separator #555555
+        focused_workspace #222222 #222222 #FFFFFF
+        #focused_workspace #0088CC #0088CC #FFFFFF
+        active_workspace #222222 #222222 #FFFFFF
+        inactive_workspace #222222 #222222 #777777
         urgent_workspace #2F343A #900000 #FFFFFF
         binding_mode #b691d3 #A07CBC #FFFFFF
     }
@@ -238,6 +239,9 @@ bar {
 # Borders
 default_border pixel 3
 smart_borders on
+# Cores das bordas das janelas
+client.focused          #cccccc #cccccc #000000 #cccccc #cccccc
+client.focused_inactive #555555 #555555 #000000 #555555 #555555
+client.unfocused        #333333 #333333 #000000 #333333 #333333
+client.urgent           #ff0000 #ff0000 #000000 #ff0000 #ff0000
 
-# ## ###
-include /etc/sway/config.d/*
