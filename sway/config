@@ -24,7 +24,7 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/ds.jpg fill
-#
+# Scale
 output * scale 1.25
 ##
 
