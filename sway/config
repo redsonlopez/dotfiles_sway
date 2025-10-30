@@ -18,7 +18,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+#set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -75,7 +75,7 @@ input type:touchpad {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec wofi --show drun
     #bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-15'"
 
     # Use pactl to adjust volume in PulseAudio.
@@ -221,8 +221,9 @@ bar {
     position top
     font pango:ttf-font-awesome 11
     tray_output none
+    #swaybar_command waybar
     status_command i3status
-    # status_command /usr/bin/i3status-rs /usr/share/doc/i3status-rust/examples/config.toml
+    #status_command /usr/bin/i3status-rs /usr/share/doc/i3status-rust/examples/config.toml
     colors {
         background #222222
         statusline #dddddd

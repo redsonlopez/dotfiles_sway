@@ -1,0 +1,73 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["custom/menu", "sway/workspaces"],
+  "modules-center": [],
+  "modules-right": [
+    "cpu",
+    "load",
+    "memory",
+    "network",
+    "pulseaudio",
+    "battery",
+    "clock#date",
+    "clock#time"
+  ],
+
+  // ==== MENU ====
+  "custom/menu": {
+    "format": "⩓",
+    "tooltip": "Abrir menu de aplicativos",
+    "on-click": "wofi --show drun"
+  },
+
+  // ==== CPU ====
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}% "
+  },
+
+  // ==== LOAD ====
+  "load": {
+    "interval": 5,
+    "format": " {1min} "
+  },
+
+  // ==== MEMÓRIA ====
+  "memory": {
+    "interval": 5,
+    "format": " {used} "
+  },
+
+  // ==== REDE ====
+  "network": {
+    "interval": 5,
+    "format-wifi": " {essid}({signalStrength}%) ",
+    "format-ethernet": " {ifname}({bandwidthDownBits}) ",
+    "format-disconnected": " down "
+  },
+
+  // ==== VOLUME ====
+  "pulseaudio": {
+    "format": "🔊 {volume}% "
+  },
+
+  // ==== BATERIA ====
+  "battery": {
+    "format": " {capacity}% ",
+    "format-full": " 100% ",
+    "format-charging": " {capacity}% ",
+    "format-discharging": " {capacity}% "
+  },
+
+  // ==== DATA ====
+  "clock#date": {
+    "format": " {:%d/%m} "
+  },
+
+  // ==== HORA ====
+  "clock#time": {
+    "format": " {:%Hh%M} "
+  }
+}
+

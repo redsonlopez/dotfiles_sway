@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sudo apt install -y foot i3status neovim wmenu fonts-font-awesome wl-clipboard
+#sudo apt install -y foot neovim waybar wofi fonts-font-awesome wl-clipboard
 #sudo timedatectl set-timezone America/Sao_Paulo
 
 # M11W
@@ -23,7 +23,7 @@ sudo mkdir -p /usr/share/backgrounds
 DOTFILES_DIR="$HOME/Projects/dotfiles_sway"
 CONFIG_DIR="$HOME/.config"
 
-declare -a CONFIGS=("sway" "foot" "i3status" "nvim")
+declare -a CONFIGS=("foot" "nvim" "sway" "waybar" "wofi")
 
 # Criação dos links simbólicos
 for dir in "${CONFIGS[@]}"; do
