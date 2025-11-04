@@ -22,7 +22,7 @@ order += "tztime date"
 order += "tztime time"
 
 cpu_usage {
-	format = " %usage"
+	format = " %usage"
 }
 
 load {
@@ -30,12 +30,12 @@ load {
 }
 
 memory {
-	format = " %used"
+	format = " %used"
 	threshold_degraded = "1G"
 }
 
 wireless _first_ {
-	format_up = " %essid%quality"
+	format_up = " %essid(%quality)"
 	format_down = "down"
 }
 
@@ -46,6 +46,7 @@ ethernet _first_ {
 
 volume master {
 	format = "🔊 %volume"
+	format_muted = "🔈 %volume"
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
