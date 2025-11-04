@@ -57,9 +57,11 @@
 
   "network": {
     "interval": 5,
-    "format-wifi": " {essid}({signalStrength}%) ",
+    "format-wifi": " {signalStrength}% ",
     "format-ethernet": " {ifname}({bandwidthDownBits}) ",
-    "format-disconnected": " down "
+    "format-disconnected": " down ",
+	"tooltip": true,
+    "tooltip-format": "Wifi: {essid}\nSpeed: ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}"
   },
 
   "pulseaudio": {
@@ -81,11 +83,13 @@
   },
 
   "clock#date": {
-    "format": " {:%d/%m} "
+    "format": " {:%d/%m} ",
+	"tooltip": false
   },
 
   "clock#time": {
-    "format": " {:%H:%M} "
+    "format": " {:%H:%M} ",
+	"tooltip": false
   }
 }
 
