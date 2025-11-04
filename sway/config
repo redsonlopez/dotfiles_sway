@@ -247,8 +247,8 @@ bar {
 # Borders
 default_border pixel 3
 smart_borders on
-# Cores das bordas das janelas
-client.focused          #cccccc #cccccc #000000 #cccccc #cccccc
+# Windows borders		#		#		#		#		border
+client.focused          #cccccc #cccccc #000000 #cccccc #777777
 client.focused_inactive #555555 #555555 #000000 #555555 #555555
 client.unfocused        #333333 #333333 #000000 #333333 #333333
 client.urgent           #ff0000 #ff0000 #000000 #ff0000 #ff0000
