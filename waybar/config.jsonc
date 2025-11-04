@@ -61,11 +61,14 @@
     "format-ethernet": " {ifname}({bandwidthDownBits}) ",
     "format-disconnected": " down ",
 	"tooltip": true,
-    "tooltip-format": "Wifi: {essid}\nSpeed: ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}"
+    /*"tooltip-format": "Wifi: {essid}\nSpeed: ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",*/
+    "tooltip-format-wifi": "Network: {essid}\nIP: {ipaddr}\n↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+    "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}\n↓ {bandwidthDownBits} ↑ {bandwidthUpBits}"
   },
 
   "pulseaudio": {
-    "format": "🔊 {volume}% "
+    "format": "🔊 {volume}% ",
+    "format-muted": "🔊 0% "
   },
 
   "backlight": {
