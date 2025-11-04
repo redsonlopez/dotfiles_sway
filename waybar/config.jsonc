@@ -23,7 +23,7 @@
 
   "cpu": {
     "interval": 5,
-    "format": " {usage}% ",
+    "format": " {usage}%",
 	"states": {
       "warning": 60,
       "critical": 85
@@ -32,7 +32,7 @@
 
   "load": {
     "interval": 5,
-    "format": " {} ",
+    "format": " {}",
 	"states": {
       "warning": 2.0,
       "critical": 4.0
@@ -41,7 +41,7 @@
 
   "memory": {
     "interval": 5,
-    "format": " {used:0.3f} ",
+    "format": " {used:0.2f}",
 	"states": {
       "warning": 50,
       "critical": 70
@@ -51,33 +51,34 @@
   "temperature": {
     "critical-threshold": 80,
 	"warning-threshold": 65,
-    "format": "🌡 {temperatureC}°C ",
-    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input"
+    "format": "🌡 {temperatureC}°C",
+    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+	"tooltip": false
   },
 
   "network": {
     "interval": 5,
-    "format-wifi": " {signalStrength}% ",
-    "format-ethernet": " {ifname}({bandwidthDownBits}) ",
-    "format-disconnected": " down ",
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": " {bandwidthDownBits}",
+    "format-disconnected": " down",
 	"tooltip": true,
-    /*"tooltip-format": "Wifi: {essid}\nSpeed: ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",*/
     "tooltip-format-wifi": "Network: {essid}\nIP: {ipaddr}\n↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
     "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}\n↓ {bandwidthDownBits} ↑ {bandwidthUpBits}"
   },
 
   "pulseaudio": {
-    "format": "🔊 {volume}% ",
-    "format-muted": "🔊 0% "
+    "format": "🔊 {volume}%",
+    "format-muted": "🔊 0%"
   },
 
   "backlight": {
-    "format": "💡 {percent}% ",
-    "device": "intel_backlight"
+    "format": "💡 {percent}%",
+    "device": "intel_backlight",
+	"tooltip": false
   },
 
   "battery": {
-    "format": "{icon} {capacity}% ",
+    "format": "{icon} {capacity}%",
     "format-icons": ["", "", "", "", ""],
     "states": {
       "warning": 50,
@@ -86,12 +87,12 @@
   },
 
   "clock#date": {
-    "format": " {:%d/%m} ",
+    "format": " {:%d/%m}",
 	"tooltip": false
   },
 
   "clock#time": {
-    "format": " {:%H:%M} ",
+    "format": " {:%H:%M}",
 	"tooltip": false
   }
 }

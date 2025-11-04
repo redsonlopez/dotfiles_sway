@@ -19,6 +19,7 @@ window#waybar {
 #battery,
 #clock {
     font-weight: 600;
+	padding: 0 6px;
 }
 
 #cpu.critical,
@@ -65,3 +66,21 @@ window#waybar {
 	background: #555;
 }
 
+/*
+#workspaces button.focused,
+#custom-menu,
+#cpu,
+#load,
+#memory,
+#temperature,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#clock {
+	border: 3px solid #222;
+	border-radius: 7px;
+	background-color: #444;
+
+}
+*/
