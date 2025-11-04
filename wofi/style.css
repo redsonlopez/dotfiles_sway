@@ -1,33 +1,34 @@
-window {
-    background-color: rgba(22, 22, 22, 0.9);
-    color: #e0e0e0;
+* {
+	background-color: rgba(22, 22, 22, 0.9);
+	color: #ffffff;
 }
 
 #input {
-    background-color: #222222;
-    color: #ffffff;
     border: 1px solid #333;
     padding: 6px;
     border-radius: 6px;
 }
 
+#input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #888;
+}
+
 #entry {
-    background-color: transparent;
-    color: #d0d0d0;
     padding: 4px 8px;
 }
 
 #entry:selected {
-    background-color: #404040;
-    color: #ffffff;
     border-radius: 6px;
-}
-
-#text {
-    color: inherit;
 }
 
 #scroll {
     margin: 5px;
+}
+
+#scrollbar slider, scrollbar slider {
+    background-color: #aaaaaa;
+    border-radius: 6px;
 }
 

@@ -8,6 +8,10 @@ set encoding=utf-8
 syntax on
 filetype plugin indent on
 
+" Definir tamanho das tabulações
+set tabstop=4
+set shiftwidth=4
+
 " Configuração para cores serem bem aceitas independente do terminal
 set termguicolors
 
@@ -87,10 +91,6 @@ set mouse=a
 
 " Ativar a identação automática
 "filetype plugin indent on
-
-" Definir tamanho das tabulações
-"set tabstop=4
-"set shiftwidth=4
 
 " Usar espaços em vez de tabulações
 "set expandtab

@@ -23,7 +23,7 @@ sudo mkdir -p /usr/share/backgrounds
 DOTFILES_DIR="$HOME/Projects/dotfiles_sway"
 CONFIG_DIR="$HOME/.config"
 
-declare -a CONFIGS=("foot" "nvim" "sway" "waybar" "wofi")
+declare -a CONFIGS=("foot" "i3status" "nvim" "sway" "waybar" "wofi")
 
 # Criação dos links simbólicos
 for dir in "${CONFIGS[@]}"; do

@@ -7,8 +7,8 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
+	colors = true
+	interval = 5
 }
 order += "cpu_usage"
 order += "load"
@@ -22,44 +22,44 @@ order += "tztime date"
 order += "tztime time"
 
 cpu_usage {
-    format = " %usage"
+	format = " %usage"
 }
 
 load {
-        format = " %1min"
+	format = " %1min"
 }
 
 memory {
-        format = " %used"
-        threshold_degraded = "1G"
+	format = " %used"
+	threshold_degraded = "1G"
 }
 
 wireless _first_ {
-        format_up = " %essid%quality"
-        format_down = "down"
+	format_up = " %essid%quality"
+	format_down = "down"
 }
 
 ethernet _first_ {
-        format_up = " %speed"
-        format_down = " down"
+	format_up = " %speed"
+	format_down = " down"
 }
 
 volume master {
-    format = "♪ %volume"
-    device = "default"
-    mixer = "Master"
-    mixer_idx = 0
+	format = "🔊 %volume"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
 }
 
 battery all {
-        format = " %percentage"
+	format = " %percentage"
 }
 
 tztime date {
-    format = " %d/%m/%Y"
+	format = " %d/%m/%Y"
 }
 
 tztime time {
-    format = " %Hh%M"
+	format = " %Hh%M"
 }
 

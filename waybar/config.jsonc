@@ -7,39 +7,54 @@
     "cpu",
     "load",
     "memory",
-    "network",
+	"temperature",
+	"backlight",
     "pulseaudio",
+	"network",
     "battery",
     "clock#date",
     "clock#time"
   ],
 
-  // ==== MENU ====
   "custom/menu": {
-    "format": "⩓",
-    "tooltip": "Abrir menu de aplicativos",
+    "format": "∆",
     "on-click": "wofi --show drun"
   },
 
-  // ==== CPU ====
   "cpu": {
     "interval": 5,
-    "format": " {usage}% "
+    "format": " {usage}% ",
+	"states": {
+      "warning": 60,
+      "critical": 85
+    }
   },
 
-  // ==== LOAD ====
   "load": {
     "interval": 5,
-    "format": " {1min} "
+    "format": " {} ",
+	"states": {
+      "warning": 2.0,
+      "critical": 4.0
+    }
   },
 
-  // ==== MEMÓRIA ====
   "memory": {
     "interval": 5,
-    "format": " {used} "
+    "format": " {used:0.3f} ",
+	"states": {
+      "warning": 50,
+      "critical": 70
+    }
   },
 
-  // ==== REDE ====
+  "temperature": {
+    "critical-threshold": 80,
+	"warning-threshold": 65,
+    "format": "🌡 {temperatureC}°C ",
+    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input"
+  },
+
   "network": {
     "interval": 5,
     "format-wifi": " {essid}({signalStrength}%) ",
@@ -47,27 +62,30 @@
     "format-disconnected": " down "
   },
 
-  // ==== VOLUME ====
   "pulseaudio": {
     "format": "🔊 {volume}% "
   },
 
-  // ==== BATERIA ====
-  "battery": {
-    "format": " {capacity}% ",
-    "format-full": " 100% ",
-    "format-charging": " {capacity}% ",
-    "format-discharging": " {capacity}% "
+  "backlight": {
+    "format": "💡 {percent}% ",
+    "device": "intel_backlight"
   },
 
-  // ==== DATA ====
+  "battery": {
+    "format": "{icon} {capacity}% ",
+    "format-icons": ["", "", "", "", ""],
+    "states": {
+      "warning": 50,
+      "critical": 20
+	}
+  },
+
   "clock#date": {
     "format": " {:%d/%m} "
   },
 
-  // ==== HORA ====
   "clock#time": {
-    "format": " {:%Hh%M} "
+    "format": " {:%H:%M} "
   }
 }
 

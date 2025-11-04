@@ -18,14 +18,22 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-#set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu dmenu_path | wmenu -p "run:"\
+    -f "monospace 15" \
+    -N "#222222" \
+    -n "#ffffff" \
+    -M "#555555" \
+    -m "#EEEEEE" \
+    -S "#555555" \
+    -s "#EEEEEE" \
+    | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/ds.jpg fill
 # Scale
-output * scale 1.25
+output * scale 1
 ##
 
 # Example configuration:
@@ -75,8 +83,7 @@ input type:touchpad {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec wofi --show drun
-    #bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-15'"
+	bindsym $mod+d exec --no-startup-id $menu
 
     # Use pactl to adjust volume in PulseAudio.
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -221,8 +228,8 @@ bar {
     position top
     font pango:ttf-font-awesome 11
     tray_output none
-    #swaybar_command waybar
-    status_command i3status
+    swaybar_command waybar
+    #status_command i3status
     #status_command /usr/bin/i3status-rs /usr/share/doc/i3status-rust/examples/config.toml
     colors {
         background #222222
