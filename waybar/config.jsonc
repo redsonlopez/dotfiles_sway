@@ -43,7 +43,7 @@
 
   "memory": {
     "interval": 5,
-    "format": "󰆼 {used:0.2f}",
+    "format": "󰘚 {used:0.2f}",
 	"states": {
       "warning": 50,
       "critical": 70
