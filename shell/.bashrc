@@ -35,7 +35,7 @@ RESET_COLOR="\[\033[0;0m\]"
 #PS1="$PETROL_LIGHT\w$PETROL\$(parse_git_branch)$RESET_COLOR\$ "
 PS1="$ORANGE\w$YELLOW\$(parse_git_branch)$RESET_COLOR\$ "
 
-# Fast Node Manager
+# fnm
 FNM_PATH="/home/red/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
