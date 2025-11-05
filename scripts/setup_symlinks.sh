@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#sudo pacman -S ttf-nerd-fonts-symbols
 #sudo apt install -y foot neovim waybar wofi fonts-font-awesome wl-clipboard
 #sudo timedatectl set-timezone America/Sao_Paulo
 

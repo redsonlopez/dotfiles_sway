@@ -43,7 +43,7 @@
 
   "memory": {
     "interval": 5,
-    "format": " {used:0.2f}",
+    "format": "󰆼 {used:0.2f}",
 	"states": {
       "warning": 50,
       "critical": 70
@@ -53,7 +53,7 @@
   "temperature": {
     "critical-threshold": 80,
 	"warning-threshold": 65,
-    "format": "🌡 {temperatureC}°C",
+    "format": "󰔏 {temperatureC}°C",
     "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
 	"tooltip": false
   },
@@ -79,7 +79,7 @@
   },
 
   "backlight": {
-    "format": "💡 {percent}%",
+    "format": "󰃟 {percent}%",
     "device": "intel_backlight",
 	"tooltip": false
   },
@@ -99,7 +99,7 @@
   },
 
   "clock#time": {
-    "format": " {:%H:%M}",
+    "format": "󰥔 {:%H:%M}",
 	"tooltip": false
   }
 }
