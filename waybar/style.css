@@ -39,7 +39,7 @@ window#waybar {
 }
 
 #pulseaudio.muted {
-	color: #fa0;
+	color: #f00;
 }
 
 #network.disconnected {
