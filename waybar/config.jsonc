@@ -62,15 +62,20 @@
     "interval": 5,
     "format-wifi": " {signalStrength}%",
     "format-ethernet": " {bandwidthDownBits}",
-    "format-disconnected": " down",
+    "format-disconnected": " down",
     "tooltip": true,
     "tooltip-format-wifi": "Network: {essid}\nIP: {ipaddr}\n↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
     "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}\n↓ {bandwidthDownBits} ↑ {bandwidthUpBits}"
   },
 
   "pulseaudio": {
-    "format": "🔊 {volume}%",
-    "format-muted": "🔈 {volume}%"
+   "format": "{icon} {volume}%",
+   "format-muted": " {volume}%",
+   "format-icons": {
+	   "headphone": "",
+	   "headset": "",
+	   "default": ["", "", ""]
+   }
   },
 
   "backlight": {
