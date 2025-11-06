@@ -1,4 +1,4 @@
-/*∆ Λ λ*/
+/*∆ Λ λ Arch*/
 {
   "layer": "top",
   "position": "top",
@@ -18,7 +18,7 @@
   ],
 
   "custom/menu": {
-    "format": "λ",
+    "format": "Λ",
     "on-click": "wofi --show drun",
     "tooltip": true,
     "tooltip-format": "Menu"
