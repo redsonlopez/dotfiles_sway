@@ -1,3 +1,4 @@
+/*∆ Λ λ*/
 {
   "layer": "top",
   "position": "top",
@@ -17,7 +18,7 @@
   ],
 
   "custom/menu": {
-    "format": "∆",
+    "format": "λ",
     "on-click": "wofi --show drun",
     "tooltip": true,
     "tooltip-format": "Menu"
