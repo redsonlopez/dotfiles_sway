@@ -16,7 +16,6 @@ c.qt.args = [
     "--disable-accelerated-video-decode",
     "--disable-accelerated-mjpeg-decode",
     "--disable-smooth-scrolling",
-    "--no-sandbox",
     "--disable-dev-shm-usage",
     "--disable-features=VizDisplayCompositor,UseSkiaRenderer,CanvasOopRasterization"
 ]
