@@ -21,7 +21,7 @@
     "format": "Λ",
     "on-click": "wofi --show drun",
     "tooltip": true,
-    "tooltip-format": "Menu"
+    "tooltip-format": "Arch Linux Sway"
   },
 
   "cpu": {
