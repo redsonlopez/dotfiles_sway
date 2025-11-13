@@ -5,12 +5,12 @@ set clipboard=unnamed,unnamedplus
 set encoding=utf-8
 
 " Ativar a coloração de sintaxe
-syntax on
 filetype plugin indent on
+syntax on
 
 " Definir tamanho das tabulações
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 " Configuração para cores serem bem aceitas independente do terminal
 set termguicolors

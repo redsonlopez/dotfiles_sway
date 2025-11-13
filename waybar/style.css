@@ -1,5 +1,5 @@
 * {
-    font-family: "Symbols Nerd Font", "monospace";
+	font-family: "Symbols Nerd Font", "monospace";
 	font-size: 11pt;
 	border-radius: 0px;
 	color: #ffffff;
@@ -18,7 +18,7 @@ window#waybar {
 #network,
 #battery,
 #clock {
-    font-weight: 600;
+	font-weight: 600;
 	padding: 0 6px;
 }
 
@@ -27,7 +27,7 @@ window#waybar {
 #memory.critical,
 #temperature.critical,
 #battery.critical {
-	color: #f00;
+	background-color: #800;
 }
 
 #cpu.warning,
@@ -35,15 +35,15 @@ window#waybar {
 #memory.warning,
 #temperature.warning,
 #battery.warning {
-	color: #fa0;
+	background-color: #840;
 }
 
 #pulseaudio.muted {
-	color: #f00;
+	background-color: #800;
 }
 
 #network.disconnected {
-	color: #f00;
+	background-color: #800;
 }
 
 #workspaces button {
@@ -63,7 +63,7 @@ window#waybar {
 }
 
 #custom-menu:hover {
-	background: #555;
+	background: #333;
 }
 
 #cpu,
