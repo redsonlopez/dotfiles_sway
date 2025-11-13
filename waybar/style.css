@@ -22,28 +22,24 @@ window#waybar {
 	padding: 0 6px;
 }
 
-#cpu.critical,
-#load.critical,
-#memory.critical,
-#temperature.critical,
-#battery.critical {
-	background-color: #900;
-}
-
 #cpu.warning,
 #load.warning,
 #memory.warning,
 #temperature.warning,
 #battery.warning {
-	background-color: #940;
+	color: #222;
+	background-color: #fa0;
 }
 
-#pulseaudio.muted {
-	background-color: #900;
-}
-
-#network.disconnected {
-	background-color: #900;
+#pulseaudio.muted,
+#network.disconnected, 
+#cpu.critical,
+#load.critical,
+#memory.critical,
+#temperature.critical,
+#battery.critical {
+	color: #222;
+	background-color: #f00;
 }
 
 #workspaces button {
@@ -63,7 +59,7 @@ window#waybar {
 }
 
 #custom-menu:hover {
-	background: #333;
+	background: #555;
 }
 
 #cpu,
