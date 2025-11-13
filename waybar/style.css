@@ -72,7 +72,7 @@ window#waybar {
 #battery,
 #clock {
 	border: 1px solid #111;
-	border-radius: 6px;
+	border-radius: 5px;
 	background-color: #333;
 	margin: 1px;
 }
