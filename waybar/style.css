@@ -35,7 +35,7 @@ window#waybar {
 #memory.warning,
 #temperature.warning,
 #battery.warning {
-	background-color: #b50;
+	background-color: #940;
 }
 
 #pulseaudio.muted {
