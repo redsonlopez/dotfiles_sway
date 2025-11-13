@@ -27,7 +27,7 @@ window#waybar {
 #memory.critical,
 #temperature.critical,
 #battery.critical {
-	background-color: #800;
+	background-color: #700;
 }
 
 #cpu.warning,
@@ -35,15 +35,15 @@ window#waybar {
 #memory.warning,
 #temperature.warning,
 #battery.warning {
-	background-color: #840;
+	background-color: #730;
 }
 
 #pulseaudio.muted {
-	background-color: #800;
+	background-color: #700;
 }
 
 #network.disconnected {
-	background-color: #800;
+	background-color: #700;
 }
 
 #workspaces button {
