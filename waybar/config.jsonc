@@ -9,16 +9,16 @@
     "load",
     "memory",
 	"temperature",
-	"backlight",
+	/*"backlight",*/
     "pulseaudio",
 	"network",
     "battery",
-    "clock#date",
+    /*"clock#date",*/
     "clock#time"
   ],
 
   "custom/menu": {
-    "format": "Λ",
+    "format": "λ",
     "on-click": "wofi --show drun",
     "tooltip": true,
     "tooltip-format": "Arch Linux Sway"
