@@ -91,7 +91,7 @@ window#waybar {
 }
 
 #clock {
-	margin: 1px 4px;
+	margin: 1px 10px;
 }
 
 #custom-playerctl-title {
@@ -127,6 +127,6 @@ window#waybar {
 }
 
 .modules-center {
-	margin: 0px 100px 0px 10px;
+	margin: 0px 10px 0px 10px;
 }
 
