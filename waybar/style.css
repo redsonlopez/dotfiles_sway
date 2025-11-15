@@ -17,11 +17,13 @@ window#waybar {
 #pulseaudio,
 #network,
 #battery,
-#clock {
+#clock
+{
 	font-weight: 600;
 	padding: 0 6px;
 }
 
+#mode,
 #cpu.warning,
 #load.warning,
 #memory.warning,
@@ -62,6 +64,9 @@ window#waybar {
 	background: #555;
 }
 
+#custom-playerctl,
+#bluetooth,
+#custom-power,
 #cpu,
 #load,
 #memory,
