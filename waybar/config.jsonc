@@ -157,7 +157,7 @@
     "interval": 2,
     "format": "{text}",
     "tooltip": false,
-    "exec": "t=$(playerctl metadata --format '{{title}}' 2>/dev/null || echo ''); N=10; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\""
+    "exec": "t=$(playerctl metadata --format '{{title}}' 2>/dev/null || echo ''); N=15; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\""
 },
 
 	"custom/power": {
