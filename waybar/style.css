@@ -3,6 +3,10 @@
 	font-size: 11pt;
 	border-radius: 0px;
 	color: #ffffff;
+	border: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 window#waybar {
@@ -64,7 +68,6 @@ window#waybar {
 	background: #555;
 }
 
-#custom-playerctl,
 #bluetooth,
 #custom-power,
 #cpu,
@@ -80,5 +83,50 @@ window#waybar {
 	border-radius: 5px;
 	background-color: #333;
 	margin: 1px;
+}
+
+#custom-power {
+	padding: 0 10px;
+	margin: 1px 4px;
+}
+
+#clock {
+	margin: 1px 4px;
+}
+
+#custom-playerctl-title {
+	margin: 1px 4px;
+}
+
+#custom-playerctl-prev,
+#custom-playerctl,
+#custom-playerctl-next {
+	padding: 0 6px;
+	border: 1px solid #111;
+	background: #333;
+	margin: 1px 0 1px 0;
+}
+
+#custom-playerctl-prev {
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+	padding: 0 5px 0 15px;
+
+}
+
+#custom-playerctl {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+#custom-playerctl-next {
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+	padding: 0 15px 0 5px;
+}
+
+.modules-center {
+	margin: 0px 100px 0px 10px;
 }
 

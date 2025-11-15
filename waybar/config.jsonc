@@ -2,13 +2,15 @@
 {
 	"layer": "top",
   "position": "top",
+	"height": 20,
   "modules-left": ["custom/menu", "sway/workspaces", "sway/mode"],
-  "modules-center": ["clock", "custom/playerctl-prev", "custom/playerctl", "custom/playerctl-next"],
+  "modules-center": ["clock", "custom/playerctl-prev", "custom/playerctl", "custom/playerctl-next", "custom/playerctl-title"],
   "modules-right": [
     "cpu",
     "load",
     "memory",
 	"temperature",
+	"backlight",
     "pulseaudio",
 	"network",
 	"bluetooth",
@@ -126,36 +128,44 @@
 
 	"custom/playerctl-prev": {
     "format": "",
-    "tooltip": "Música anterior",
+		"tootip": true,
+		"tooltip-format": "Previous",
     "on-click": "playerctl previous",
     "interval": "once"
 	},
 
-	"custom/playerctl": {
-			"interval": "once",
-			"tooltip": true,
-			"return-type": "json",
-			"format": "{icon}",
-			"format-icons": {
-					"Playing": "  ",
-					"Paused": "  ",
-					"Stopped": ""
-			},
-			"exec": "playerctl metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}: {{markup_escape(title)}} - {{markup_escape(artist)}}\"}' || echo '{\"alt\": \"Stopped\", \"tooltip\": \"Nenhum player\"}'",
-			"on-click": "playerctl play-pause; pkill -RTMIN+5 waybar",
-			"signal": 5
-	},
+"custom/playerctl": {
+    "interval": 2,
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+        "Playing": "",
+        "Paused": ""
+    },
+    "exec": "sh -c 's=$(playerctl status 2>/dev/null || echo Paused); printf \"{\\\"alt\\\":\\\"%s\\\"}\\n\" \"$s\"'",
+    "on-click": "playerctl play-pause; pkill -RTMIN+5 waybar",
+		"tooltip": false,
+    "signal": 5
+},
 
 	"custom/playerctl-next": {
 			"format": "",
-			"tooltip": "Próxima música",
+			"tootip": true,
+			"tooltip-format": "Next",
 			"on-click": "playerctl next",
 			"interval": "once"
 	},
 
+"custom/playerctl-title": {
+    "interval": 2,
+    "format": "{text}",
+    "tooltip": false,
+    "exec": "t=$(playerctl metadata --format '{{title}}' 2>/dev/null || echo ''); N=10; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\""
+},
+
 	"custom/power": {
-			"format": "    ",
+		"tooltip": false,
+			"format": "",
 			"on-click": "nwg-bar -x"
 	}
-
 }
