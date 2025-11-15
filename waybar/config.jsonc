@@ -127,8 +127,7 @@
 
 	"custom/playerctl-prev": {
     "format": "",
-		"tootip": true,
-		"tooltip-format": "Previous",
+		"tooltip": false,
     "on-click": "playerctl previous",
     "interval": "once"
 	},
@@ -149,8 +148,7 @@
 
 	"custom/playerctl-next": {
 			"format": "",
-			"tootip": true,
-			"tooltip-format": "Next",
+			"tooltip": false,
 			"on-click": "playerctl next",
 			"interval": "once"
 	},
