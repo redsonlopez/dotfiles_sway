@@ -19,7 +19,7 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | wmenu -p "run:"\
-    -f "monospace 13" \
+    -f "monospace 16" \
     -N "#222222" \
     -n "#ffffff" \
     -M "#555555" \
@@ -75,7 +75,7 @@ input type:touchpad {
     bindsym $mod+Return exec $term
 
     # Start web browser
-	bindsym $mod+Shift+b exec QT_QUICK_BACKEND=software QTWEBENGINE_DISABLE_GPU=1 qutebrowser
+    bindsym $mod+Shift+b exec QT_QUICK_BACKEND=software QTWEBENGINE_DISABLE_GPU=1 qutebrowser
     #bindsym $mod+Shift+b exec QTWEBENGINE_CHROMIUM_FLAGS="--no-sandbox" qutebrowser
     bindsym $mod+Shift+f exec firefox
     #bindsym $mod+Shift+g exec chromium --disable-ipv6
@@ -84,7 +84,7 @@ input type:touchpad {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-	bindsym $mod+d exec --no-startup-id $menu
+    bindsym $mod+d exec --no-startup-id $menu
 
     # Use pactl to adjust volume in PulseAudio.
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%

@@ -2,19 +2,20 @@
 {
 	"layer": "top",
   "position": "top",
-	"height": 20,
+	"height": 25,
   "modules-left": ["custom/menu", "sway/workspaces", "sway/mode"],
-  "modules-center": ["clock", "custom/playerctl-prev", "custom/playerctl", "custom/playerctl-next", "custom/playerctl-title"],
+  "modules-center": ["custom/playerctl", "custom/playerctl-prev", "custom/playerctl-next", "custom/playerctl-title"],
   "modules-right": [
     "cpu",
     "load",
     "memory",
-	"temperature",
-	"backlight",
+	  "temperature",
+	  "backlight",
     "pulseaudio",
-	"network",
-	"bluetooth",
+	  "network",
+	  "bluetooth",
     "battery",
+    "clock",
 		"custom/power"
   ],
 
@@ -28,7 +29,7 @@
   "cpu": {
     "interval": 5,
     "format": " {usage}%",
-	"states": {
+    "states": {
       "warning": 60,
       "critical": 85
     }
@@ -37,7 +38,7 @@
   "load": {
     "interval": 5,
     "format": " {}",
-	"states": {
+    "states": {
       "warning": 2.0,
       "critical": 4.0
     }
@@ -46,7 +47,7 @@
   "memory": {
     "interval": 5,
     "format": "󰘚 {used:0.2f}",
-	"states": {
+    "states": {
       "warning": 50,
       "critical": 70
     }
@@ -54,10 +55,10 @@
 
   "temperature": {
     "critical-threshold": 80,
-	"warning-threshold": 65,
+    "warning-threshold": 65,
     "format": "󰔏 {temperatureC}°C",
     "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
-	"tooltip": false
+    "tooltip": false
   },
 
   "network": {
@@ -70,19 +71,19 @@
   },
 
   "pulseaudio": {
-   "format": "{icon} {volume}%",
-   "format-muted": " {volume}%",
-   "format-icons": {
-	   "headphone": "",
-	   "headset": "",
-	   "default": ["", "", ""]
-   }
+    "format": "{icon} {volume}%",
+    "format-muted": " {volume}%",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": ["", "", ""]
+    }
   },
 
   "backlight": {
     "format": "󰃟 {percent}%",
     "device": "intel_backlight",
-	"tooltip": false
+    "tooltip": false
   },
 
   "battery": {
@@ -91,20 +92,20 @@
     "states": {
       "warning": 50,
       "critical": 20
-	}
+    }
   },
 
   "clock#date": {
     "format": " {:%d/%m}",
-	"tooltip": false
+    "tooltip": false
   },
 
   "clock#time": {
     "format": "󰥔 {:%H:%M}",
-	"tooltip": false
+    "tooltip": false
   },
 
-	"clock": {
+  "clock": {
 		"format": "{:%e %b %H:%M}",
 		"tooltip": true,
 		"tooltip-format": "{:%d.%m.%Y %H:%M}",
@@ -112,17 +113,17 @@
 	},
  
 	"sway/mode": {
-		"format": " <span style=\"italic\">{}</span> ",
-		"tooltip": false
+    "format": " <span style=\"italic\">{}</span> ",
+    "tooltip": false
 	},
 
 	"bluetooth": {
-			"format": "",
-			"format-disabled": "",
-			"format-no-controller": "",
-			"on-click": "swaymsg exec \\$bluetooth",
-			"on-click-right": "rfkill toggle bluetooth",
-			"tooltip-format": "{}"
+    "format": "",
+		"format-disabled": "",
+		"format-no-controller": "",
+		"on-click": "swaymsg exec \\$bluetooth",
+		"on-click-right": "rfkill toggle bluetooth",
+		"tooltip-format": "{}"
 	},
 
 	"custom/playerctl-prev": {
@@ -132,19 +133,19 @@
     "interval": "once"
 	},
 
-"custom/playerctl": {
+  "custom/playerctl": {
     "interval": 2,
     "return-type": "json",
     "format": "{icon}",
     "format-icons": {
-        "Playing": "",
-        "Paused": ""
+      "Playing": "",
+      "Paused": ""
     },
     "exec": "sh -c 's=$(playerctl status 2>/dev/null || echo Paused); printf \"{\\\"alt\\\":\\\"%s\\\"}\\n\" \"$s\"'",
     "on-click": "playerctl play-pause; pkill -RTMIN+5 waybar",
-		"tooltip": false,
+    "tooltip": false,
     "signal": 5
-},
+  },
 
 	"custom/playerctl-next": {
 			"format": "",
@@ -153,16 +154,16 @@
 			"interval": "once"
 	},
 
-"custom/playerctl-title": {
-    "interval": 2,
-    "format": "{text}",
-    "tooltip": false,
-    "exec": "t=$(playerctl metadata --format '{{title}}' 2>/dev/null || echo ''); N=15; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\""
-},
+  "custom/playerctl-title": {
+      "interval": 2,
+      "format": "{text}",
+      "tooltip": false,
+      "exec": "t=$(playerctl metadata --format '{{title}}' 2>/dev/null || echo ''); N=15; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\""
+  },
 
 	"custom/power": {
-		"tooltip": false,
-			"format": "",
-			"on-click": "nwg-bar -x"
+    "tooltip": false,
+		"format": "",
+		"on-click": "nwg-bar -x"
 	}
 }
