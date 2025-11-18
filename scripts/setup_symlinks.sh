@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S tree git foot mpd neovim waybar wmenu wofi wl-clipboard ttf-nerd-fonts-symbols nwg-bar playerctl
+sudo pacman -S tree git foot mpc mpd neovim waybar wmenu wofi wl-clipboard ttf-nerd-fonts-symbols nwg-bar playerctl
 
 mkdir -p ~/.config
 sudo mkdir -p /usr/share/backgrounds
@@ -41,3 +41,5 @@ echo "Configurações vinculadas com sucesso."
 
 systemctl --user enable --now mpd.service
 mpc update
+mpc add /
+mpc repeat on
