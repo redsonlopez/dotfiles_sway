@@ -94,34 +94,34 @@ window#waybar {
 	margin: 1px 6px;
 }
 
-#custom-playerctl-title {
+#custom-mpd-title {
 	margin: 1px 4px;
 	font-stretch: condensed;
 }
 
-#custom-playerctl-prev,
-#custom-playerctl,
-#custom-playerctl-next {
+#custom-mpd-prev,
+#custom-mpd,
+#custom-mpd-next {
 	padding: 0 6px;
 	/*border: 1px solid #111;
 	background: #333;*/
 	margin: 1px 0 1px 0;
 }
 
-#custom-playerctl-prev {
+#custom-mpd-prev {
   border-right: none;
   border-radius: 5px 0 0 5px;
 	padding: 0 5px 0 10px;
 
 }
 
-#custom-playerctl {
+#custom-mpd {
     border-left: none;
     border-right: none;
     border-radius: 0;
 }
 
-#custom-playerctl-next {
+#custom-mpd-next {
 	border-left: none;
   border-radius: 0 5px 5px 0;
 	padding: 0 10px 0 5px;
