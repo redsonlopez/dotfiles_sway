@@ -4,7 +4,6 @@
   "position": "top",
 	"height": 25,
   "modules-left": ["custom/menu", "sway/workspaces", "sway/mode"],
-  /*"modules-center": ["custom/playerctl", "custom/playerctl-prev", "custom/playerctl-next", "custom/playerctl-title"],*/
   "modules-center": ["custom/mpd", "custom/mpd-prev", "custom/mpd-next", "custom/mpd-title"],
   "modules-right": [
     "cpu",
@@ -96,16 +95,6 @@
     }
   },
 
-  "clock#date": {
-    "format": " {:%d/%m}",
-    "tooltip": false
-  },
-
-  "clock#time": {
-    "format": "󰥔 {:%H:%M}",
-    "tooltip": false
-  },
-
   "clock": {
 		"format": "{:%e %b %H:%M}",
 		"tooltip": true,
@@ -127,41 +116,6 @@
 		"tooltip-format": "{}"
 	},
 
-	"custom/playerctl-prev": {
-    "format": "",
-		"tooltip": false,
-    "on-click": "playerctl previous",
-    "interval": "once"
-	},
-
-  "custom/playerctl": {
-    "interval": 2,
-    "return-type": "json",
-    "format": "{icon}",
-    "format-icons": {
-      "Playing": "",
-      "Paused": ""
-    },
-    "exec": "sh -c 's=$(playerctl status 2>/dev/null || echo Paused); printf \"{\\\"alt\\\":\\\"%s\\\"}\\n\" \"$s\"'",
-    "on-click": "playerctl play-pause; pkill -RTMIN+5 waybar",
-    "tooltip": false,
-    "signal": 5
-  },
-
-	"custom/playerctl-next": {
-			"format": "",
-			"tooltip": false,
-			"on-click": "playerctl next",
-			"interval": "once"
-	},
-
-  "custom/playerctl-title": {
-      "interval": 2,
-      "format": "{text}",
-      "tooltip": false,
-      "exec": "t=$(playerctl metadata --format '{{title}}' 2>/dev/null || echo ''); N=15; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\""
-  },
-
   "custom/mpd": {
     "exec": "state=$(mpc status | sed -n '2p' | awk '{print $1}'); if [ \"$state\" = \"[playing]\" ]; then echo \"\"; else echo \"\"; fi",
     "interval": 1,
@@ -175,6 +129,7 @@
       "on-click": "mpc prev",
       "interval": "once"
   },
+  
   "custom/mpd-next": {
       "format": "",
       "tooltip": false,
@@ -183,8 +138,8 @@
   },
 
   "custom/mpd-title": {
-    "format": "{}",
-    "exec": "mpc status",
+    "format": "{text}",
+    "exec": "t=$(mpc status); N=15; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\"",
     "interval": 1,
     "tooltip": false
   },
