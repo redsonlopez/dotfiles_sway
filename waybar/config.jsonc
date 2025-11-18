@@ -4,7 +4,8 @@
   "position": "top",
 	"height": 25,
   "modules-left": ["custom/menu", "sway/workspaces", "sway/mode"],
-  "modules-center": ["custom/playerctl", "custom/playerctl-prev", "custom/playerctl-next", "custom/playerctl-title"],
+  /*"modules-center": ["custom/playerctl", "custom/playerctl-prev", "custom/playerctl-next", "custom/playerctl-title"],*/
+  /*"modules-center": ["custom/mpv"],*/
   "modules-right": [
     "cpu",
     "load",
@@ -160,6 +161,22 @@
       "tooltip": false,
       "exec": "t=$(playerctl metadata --format '{{title}}' 2>/dev/null || echo ''); N=15; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\""
   },
+
+"custom/mpv": {
+    "interval": 1,
+    "exec": "~/Projects/dotfiles_sway/waybar/scripts/mpv-playlist.sh",
+    "format": "{}",
+    "format-icons": {
+        "true": "",
+        "false": "",
+        "null": ""
+    },
+    "on-click": "~/Projects/dotfiles_sway/waybar/scripts/mpv-toggle.sh",
+    "on-click-right": "~/Projects/dotfiles_sway/waybar/scripts/mpv-playlist.sh",
+    "on-scroll-up": "~/Projects/dotfiles_sway/waybar/scripts/mpv-next.sh",
+    "on-scroll-down": "~/Projects/dotfiles_sway/waybar/scripts/mpv-prev.sh",
+    "tooltip": false
+},
 
 	"custom/power": {
     "tooltip": false,

@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+"""
+waybar-mpv
+- Sem args: imprime uma linha JSON para Waybar (campo "text", "tooltip", "class")
+- Com args: envia comando ao mpv via socket e sai
+"""
+
+import sys
+import socket
+import json
+import os
+import time
+
+SOCKET_PATH = "/tmp/mpvsocket"  # altere se preferir outro caminho
+TIMEOUT = 0.5
+
+def send_cmd(cmd_dict):
+    """Envia um comando JSON ao socket e retorna resposta (lista de objetos)"""
+    try:
+        s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        s.settimeout(TIMEOUT)
+        s.connect(SOCKET_PATH)
+        payload = (json.dumps(cmd_dict) + "\n").encode("utf-8")
+        s.sendall(payload)
+        # ler resposta simples (pode haver múltiplas linhas)
+        resp = b""
+        try:
+            while True:
+                chunk = s.recv(4096)
+                if not chunk:
+                    break
+                resp += chunk
+        except socket.timeout:
+            pass
+        s.close()
+        if not resp:
+            return None
+        lines = resp.decode("utf-8", errors="ignore").strip().splitlines()
+        last = lines[-1]
+        try:
+            return json.loads(last)
+        except Exception:
+            return None
+    except (FileNotFoundError, ConnectionRefusedError, socket.timeout, OSError):
+        return None
+
+def mpv_property(name):
+    # usa request id para o mpv responder
+    cmd = {"command": ["get_property", name]}
+    return send_cmd(cmd)
+
+def mpv_command(*args):
+    cmd = {"command": ["command"] + list(args)}
+    return send_cmd(cmd)
+
+def mpv_simple_command(command_list):
+    cmd = {"command": command_list}
+    return send_cmd(cmd)
+
+def format_time(sec):
+    try:
+        sec = float(sec)
+        if sec < 0 or sec is None:
+            return "0:00"
+        m = int(sec // 60)
+        s = int(sec % 60)
+        return f"{m}:{s:02d}"
+    except Exception:
+        return "0:00"
+
+def status_output():
+    # tenta propriedades principais
+    pa = mpv_property("pause")
+    filename = mpv_property("filename")
+    time_pos = mpv_property("time-pos")
+    duration = mpv_property("duration")
+    title = mpv_property("metadata")  # metadata é objeto; iremos tentar 'title'
+    # parse
+    paused = True
+    if isinstance(pa, dict) and pa.get("data") is not None:
+        paused = bool(pa["data"])
+    name = None
+    if isinstance(filename, dict) and filename.get("data"):
+        name = filename["data"]
+    # metadata title
+    meta_title = None
+    if isinstance(title, dict) and title.get("data"):
+        md = title["data"]
+        if isinstance(md, dict):
+            meta_title = md.get("title")
+    display_name = meta_title or name or "mpv"
+    pos = None
+    dur = None
+    if isinstance(time_pos, dict) and time_pos.get("data") is not None:
+        pos = time_pos["data"]
+    if isinstance(duration, dict) and duration.get("data") is not None:
+        dur = duration["data"]
+    pos_s = format_time(pos) if pos is not None else "--:--"
+    dur_s = format_time(dur) if dur is not None else "--:--"
+    icon = "" if paused else ""  # icons: paused/play
+    text = f"{icon} {display_name} — {pos_s}/{dur_s}"
+    # class for styling
+    cls = "paused" if paused else "playing"
+    tooltip = f"{display_name}\n{pos_s} / {dur_s}\n(click: play/pause; middle: stop; scroll: seek)"
+    out = {"text": text, "tooltip": tooltip, "class": cls}
+    # Waybar espera JSON em uma linha
+    print(json.dumps(out, ensure_ascii=False), end="")
+
+def send_action(action):
+    # mapeia ações simples
+    if action == "playpause":
+        mpv_property("pause")  # just to verify; use toggle
+        mpv_simple_command(["cycle", "pause"])
+        return
+    if action == "next":
+        mpv_simple_command(["playlist-next", "force"])
+        return
+    if action == "prev":
+        mpv_simple_command(["playlist-prev", "force"])
+        return
+    if action == "stop":
+        mpv_simple_command(["stop"])
+        return
+    if action == "toggle-sub":
+        mpv_simple_command(["cycle", "sub"])
+        return
+    if action.startswith("seek+"):
+        try:
+            s = int(action.split("+",1)[1])
+            mpv_simple_command(["seek", s, "relative"])
+        except:
+            pass
+        return
+    if action.startswith("seek-"):
+        try:
+            s = int(action.split("-",1)[1])
+            mpv_simple_command(["seek", -s, "relative"])
+        except:
+            pass
+        return
+    # fallback: interpret as raw mpv command tokens separated by space
+    tokens = action.split()
+    if tokens:
+        mpv_simple_command(tokens)
+
+def main():
+    if len(sys.argv) > 1:
+        # enviar comando e sair silenciosamente (exit 0)
+        action = sys.argv[1]
+        send_action(action)
+        # para clicks no waybar, retornar rápido
+        return
+    # status mode: se socket não disponível, mostrar texto de idle
+    if not os.path.exists(SOCKET_PATH):
+        out = {"text": "mpv ❌", "tooltip": "mpv não iniciado ou socket não encontrado", "class": "stopped"}
+        print(json.dumps(out, ensure_ascii=False), end="")
+        return
+    # tenta pegar estado; se falhar, mostra "conexão falhou"
+    st = status_output()  # imprime diretamente
+
+if __name__ == "__main__":
+    main()
+
