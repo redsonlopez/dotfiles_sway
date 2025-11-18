@@ -87,11 +87,11 @@ window#waybar {
 
 #custom-power {
 	padding: 0 10px;
-	margin: 1px 4px;
+	margin: 1px 6px 1px 0px;
 }
 
 #clock {
-	margin: 1px 10px;
+	margin: 1px 6px;
 }
 
 #custom-playerctl-title {
