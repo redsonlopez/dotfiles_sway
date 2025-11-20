@@ -139,7 +139,7 @@
 
   "custom/mpd-title": {
     "format": "{text}",
-    "exec": "t=$(mpc status); N=15; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\"",
+    "exec": "t=$(mpc current); N=15; [ ${#t} -gt $N ] && t=\"${t:0:$N}…\"; echo \"$t\"",
     "interval": 1,
     "tooltip": false
   },
