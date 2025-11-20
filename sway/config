@@ -75,9 +75,9 @@ input type:touchpad {
     bindsym $mod+Return exec $term
 
     # Start web browser
-    bindsym $mod+Shift+b exec QT_QUICK_BACKEND=software QTWEBENGINE_DISABLE_GPU=1 qutebrowser
-    #bindsym $mod+Shift+b exec QTWEBENGINE_CHROMIUM_FLAGS="--no-sandbox" qutebrowser
     bindsym $mod+Shift+f exec firefox
+    #bindsym $mod+Shift+b exec QT_QUICK_BACKEND=software QTWEBENGINE_DISABLE_GPU=1 qutebrowser
+    bindsym $mod+Shift+b exec QT_QUICK_BACKEND=software qutebrowser
     #bindsym $mod+Shift+g exec chromium --disable-ipv6
 
     # Kill focused window
