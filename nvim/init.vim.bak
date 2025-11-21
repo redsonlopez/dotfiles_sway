@@ -85,18 +85,6 @@ set mouse=a
 "set ignorecase
 "set smartcase
 
-" Configuração para recuo automático
-"set autoindent
-
 " Devinir largura maxima da linha
 "set textwidth=79
-
-" Exibir caracteres de tabulação e espaços em branco
-"set list
-"set listchars=tab:»\ ,trail:·
-
-" Configuração para criar arquivos de backup e arquivos de troca
-"set backup
-"set backupdir=~/.vim/backup
-"set directory=~/.vim/swap
 
