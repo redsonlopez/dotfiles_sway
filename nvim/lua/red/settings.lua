@@ -8,7 +8,8 @@ o.expandtab = true
 o.termguicolors = true
 o.cursorline = true
 
-vim.cmd.colorscheme("vim")
+vim.o.background = "dark"
+vim.cmd.colorscheme("monokai-pro-spectrum")
 
 -- Clipboard
 o.clipboard = { "unnamed", "unnamedplus" }

@@ -1,6 +1,6 @@
-require("red.settings")
-require("red.keymaps")
 require("red.plugins")
 require("red.lsp")
 require("red.treesitter")
 require("red.nvim-tree")
+require("red.keymaps")
+require("red.settings")

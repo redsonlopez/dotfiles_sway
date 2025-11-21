@@ -13,7 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- plugins
 require("lazy").setup({
-  "nvim-tree/nvim-tree.lua",
   "nvim-treesitter/nvim-treesitter",
+  "loctvl842/monokai-pro.nvim",
+  "nvim-tree/nvim-tree.lua",
 })
 

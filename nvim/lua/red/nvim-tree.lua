@@ -1,11 +1,11 @@
 require("nvim-tree").setup({
   git = {
-    enable = false,
+    enable = true,
   },
   renderer = {
     icons = {
       show = {
-        git = false,
+        git = true,
       },
     },
   },
