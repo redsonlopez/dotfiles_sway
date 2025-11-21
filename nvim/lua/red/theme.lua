@@ -3,7 +3,6 @@ local api  = vim.api
 -- Colors Cheme
 vim.cmd.colorscheme("monokai-pro-spectrum")
 
---api.nvim_create_autocmd("ColorScheme", {
 api.nvim_create_autocmd({ "ColorScheme", "FileType" }, {
   pattern = { "*", "NvimTree" },
   callback = function()
@@ -15,7 +14,7 @@ api.nvim_create_autocmd({ "ColorScheme", "FileType" }, {
     api.nvim_set_hl(0, "NvimTreeVertSplit",    { bg = "#222222", fg = "#777777" })
     api.nvim_set_hl(0, "NvimTreeCursorLine",   { bg = "#2e2e2e" })
     api.nvim_set_hl(0, "NvimTreeSignColumn",   { bg = "#222222" })
-    -- Tabline
+    -- Tabline - Tittle
     api.nvim_set_hl(0, "TabLineSel", { fg = "#222222", bg = "#222222" })
     -- Number + Fold
     api.nvim_set_hl(0, "LineNr",          { fg = "#545454" })
