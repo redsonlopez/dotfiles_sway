@@ -15,7 +15,12 @@ api.nvim_create_autocmd({ "ColorScheme", "FileType" }, {
     api.nvim_set_hl(0, "NvimTreeCursorLine",   { bg = "#2e2e2e" })
     api.nvim_set_hl(0, "NvimTreeSignColumn",   { bg = "#222222" })
     -- Tabline - Tittle
---    api.nvim_set_hl(0, "TabLineSel", { fg = "#888888", bg = "#222222" })
+    api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#2e2e2e" })
+    api.nvim_set_hl(0, "TabLine", { fg = "#545454", bg = "#222222" })
+    api.nvim_set_hl(0, "TabLineFill", { bg = "#222222" })
+    --highlight TabLineSel guifg=#ffffff guibg=#2e2e2e gui=italic
+    --highlight TabLine guifg=#545454 guibg=#222222 gui=italic
+    --highlight TabLineFill guibg=#222222
     -- Number + Fold
     api.nvim_set_hl(0, "LineNr",          { fg = "#545454" })
     api.nvim_set_hl(0, "FoldColumn",      { bg = "#222222" })

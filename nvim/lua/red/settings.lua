@@ -7,9 +7,7 @@ o.clipboard = { "unnamed", "unnamedplus" }
 o.termguicolors = true
 
 -- Tabline (Tittle)
---o.title = true
---o.showtabline = 2
---o.tabline = "%#TabLineSel#  %f"
+o.showtabline = 2
 --o.tabline = "%#TabLineSel# "
 
 -- Identação e tabulações
