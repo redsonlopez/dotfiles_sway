@@ -7,8 +7,10 @@ o.clipboard = { "unnamed", "unnamedplus" }
 o.termguicolors = true
 
 -- Tabline (Tittle)
-o.showtabline = 2
-o.tabline = "%#TabLineSel# "
+--o.title = true
+--o.showtabline = 2
+--o.tabline = "%#TabLineSel#  %f"
+--o.tabline = "%#TabLineSel# "
 
 -- Identação e tabulações
 o.autoindent = true
