@@ -27,7 +27,11 @@ window#waybar {
 	padding: 0 6px;
 }
 
-#mode,
+#mode {
+	color: #222;
+	background-color: #0af;
+}
+
 #cpu.warning,
 #load.warning,
 #memory.warning,

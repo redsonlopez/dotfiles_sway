@@ -36,7 +36,7 @@ o.foldcolumn = "2"
 o.fillchars = { fold = " ", eob = " " }
 
 -- Statusline
-o.laststatus = 2
+o.laststatus = 3
 o.statusline =
   "%#StatusLine# %m%r%h%w %=%Y - %p%% of the file - line %l,%v of %L "
 
