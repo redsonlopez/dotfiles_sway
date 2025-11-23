@@ -20,11 +20,6 @@ local devicons = require("nvim-web-devicons")
 local function get_icon(filename, bufnr)
   local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
 
-  -- Ícone especial para o NvimTree (opcional)
-  if ft == "NvimTree" then
-    return "󰙅"
-  end
-
   -- Extrai extensão SEM o ponto
   local ext = filename:match("%.([^.]+)$") or ""
 
