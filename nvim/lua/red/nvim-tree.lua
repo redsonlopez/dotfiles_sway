@@ -1,17 +1,3 @@
-local icons = {
-  lua = "󰢱",
-  py  = "",
-  js  = "󰌞",
-  ts  = "󰛦",
-  html= "󰌝",
-  css = "󰌜",
-  md  = "󰍔",
-  json= "󰘦",
-  lock= "󰌾",
-  nvimtree= "󰙅",
-  default = "",
-}
-
 require("nvim-tree").setup({
   git = {
     enable = true,
@@ -29,23 +15,29 @@ require("nvim-tree").setup({
   },
 })
 
+local devicons = require("nvim-web-devicons")
+
 local function get_icon(filename, bufnr)
   local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
 
+  -- Ícone especial para o NvimTree (opcional)
   if ft == "NvimTree" then
-    return icons.nvimtree
+    return "󰙅"
   end
 
-  local ext = filename:match("^.+%.(.+)$")
-  return icons[ext] or icons.default
+  -- Extrai extensão SEM o ponto
+  local ext = filename:match("%.([^.]+)$") or ""
+
+  -- Pega ícone do devicons
+  local icon = devicons.get_icon(filename, ext, { default = true })
+
+  return icon or ""
 end
 
--- Função que renderiza o tabline
 function _G.my_tabline()
   local buffers = vim.api.nvim_list_bufs()
   local current = vim.api.nvim_get_current_buf()
 
-  -- Filtra apenas buffers válidos (nome != "", carregados, não NvimTree)
   local real_buffers = {}
   local has_nvimtree = false
 
@@ -62,12 +54,10 @@ function _G.my_tabline()
     end
   end
 
-  -- 🔹 Caso especial: só 1 buffer normal e nenhum NvimTree → tabline minimalista
   if #real_buffers <= 1 and not has_nvimtree then
-    return "%#TabLineFill# "  -- ← tabline vazio estilizado
+    return "%#TabLineFill# "
   end
 
-  -- 🔹 Caso: NvimTree aberto OU mais de 1 buffer → tabline com ícones
   local s = ""
 
   for _, buf in ipairs(buffers) do
@@ -77,7 +67,7 @@ function _G.my_tabline()
 
       local icon
       if ft == "NvimTree" then
-        icon = icons.nvimtree or "󰙅"
+        icon = "󰙅"
         name = "NvimTree"
       else
         icon = get_icon(name, buf)
