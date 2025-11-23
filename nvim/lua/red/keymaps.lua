@@ -1,11 +1,12 @@
-vim.g.mapleader = " "
-
 local map = vim.keymap.set
 
--- Abre/fecha NvimTree com Space+e 
+-- <leader> = Space
+vim.g.mapleader = " "
+
+-- NvimTree = Space+e 
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
--- Próximo buffer com Shift+l
+-- Next buffer = Shift+l
 map("n", "<S-l>", ":bnext<CR>", { silent = true })
--- Buffer anterior com Shift+h
+-- Previous buffer = Shift+h
 map("n", "<S-h>", ":bprevious<CR>", { silent = true })
 

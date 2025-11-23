@@ -20,10 +20,8 @@ local devicons = require("nvim-web-devicons")
 local function get_icon(filename, bufnr)
   local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
 
-  -- Extrai extensão SEM o ponto
   local ext = filename:match("%.([^.]+)$") or ""
 
-  -- Pega ícone do devicons
   local icon = devicons.get_icon(filename, ext, { default = true })
 
   return icon or ""

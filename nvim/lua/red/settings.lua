@@ -3,14 +3,14 @@ local o = vim.opt
 -- Clipboard
 o.clipboard = { "unnamed", "unnamedplus" }
 
--- Cores bem aceitas independente do terminal
+-- Colors on any terminal
 o.termguicolors = true
 
 -- Tabline (Tittle)
 o.showtabline = 2
 --o.tabline = "%#TabLineSel# "
 
--- Identação e tabulações
+-- Indentation and tabulation
 o.autoindent = true
 o.smartindent = true
 o.expandtab = true
@@ -18,7 +18,7 @@ o.tabstop = 2
 o.shiftwidth = 2
 o.softtabstop = 2
 
--- Exibir caracteres de tabulação e espaços em branco
+-- Tab characters
 --o.list = true
 --o.listchars = "tab:»·,trail:·"
 
@@ -28,11 +28,11 @@ o.cursorline = true
 o.numberwidth = 4
 o.foldcolumn = "2"
 
--- Definir largura máxima da linha
+-- Max line width
 --o.textwidth = 79
 --o.formatoptions = o.formatoptions + "t"
 
--- Remover tildes do final do arquivo
+-- Remove tildes at the end of the file
 o.fillchars = { fold = " ", eob = " " }
 
 -- Statusline
