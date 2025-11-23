@@ -1,5 +1,4 @@
 require("red.plugins")
---require("red.lsp")
 require("red.treesitter")
 require("red.settings")
 require("red.nvim-tree")
