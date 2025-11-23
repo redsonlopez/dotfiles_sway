@@ -13,13 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 -- plugins
 require("lazy").setup({
-  "nvim-treesitter/nvim-treesitter",
-  "loctvl842/monokai-pro.nvim",
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "loctvl842/monokai-pro.nvim" },
   {
     "nvim-tree/nvim-tree.lua",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 })
 
