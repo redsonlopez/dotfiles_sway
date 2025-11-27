@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S tree git foot mpc mpd neovim waybar wmenu wofi wl-clipboard ttf-nerd-fonts-symbols nwg-bar playerctl
+sudo pacman -S foot git mpc mpd neovim nwg-bar tree ttf-nerd-fonts-symbols waybar wl-clipboard wmenu wofi
 
 mkdir -p ~/.config
 sudo mkdir -p /usr/share/backgrounds
