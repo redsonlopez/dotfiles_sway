@@ -23,7 +23,7 @@ o.softtabstop = 2
 --o.listchars = "tab:»·,trail:·"
 
 -- Number + Fold
-o.relativenumber = true
+o.number = true
 o.cursorline = true
 o.numberwidth = 4
 o.foldcolumn = "2"
