@@ -5,12 +5,12 @@ sudo pacman -S tree git foot mpc mpd neovim waybar wmenu wofi wl-clipboard ttf-n
 mkdir -p ~/.config
 sudo mkdir -p /usr/share/backgrounds
 mkdir -p ~/.local/share/mpd/playlists
-
-
+mkdir ~/Music
+cp ~/Projects/dotfiles_sway/music/* ~/Music
 DOTFILES_DIR="$HOME/Projects/dotfiles_sway"
 CONFIG_DIR="$HOME/.config"
 
-declare -a CONFIGS=("foot" "mpd" "music" "nvim" "qutebrowser" "sway" "waybar" "wofi")
+declare -a CONFIGS=("foot" "mpd" "nvim" "qutebrowser" "sway" "waybar" "wofi")
 
 # Criação dos links simbólicos
 for dir in "${CONFIGS[@]}"; do
