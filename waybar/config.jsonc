@@ -1,4 +1,4 @@
-/*∆ Λ λ Arch*/
+/*∆ Λ λ  Arch*/
 {
 	"layer": "top",
   "position": "top",
@@ -20,7 +20,7 @@
   ],
 
   "custom/menu": {
-    "format": "",
+    "format": "λ",
     "on-click": "wofi --show drun",
     "tooltip": true,
     "tooltip-format": "Arch Linux Sway"
