@@ -20,7 +20,7 @@
   ],
 
   "custom/menu": {
-    "format": "λ",
+    "format": "",
     "on-click": "wofi --show drun",
     "tooltip": true,
     "tooltip-format": "Arch Linux Sway"
